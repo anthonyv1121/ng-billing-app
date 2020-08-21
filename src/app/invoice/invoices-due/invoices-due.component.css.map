@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "invoices-due.component.scss"
+    ],
+    "names": [],
+    "file": "invoices-due.component.css"
+}

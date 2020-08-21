@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAA;EACZ,cAAc,EAAE,SAAS;CAC5B",
+    "sources": [
+        "services-table.component.scss"
+    ],
+    "names": [],
+    "file": "services-table.component.css"
+}

@@ -1,0 +1,8 @@
+<div *ngIf="invoices$ | async as invoices">
+     
+  <app-invoices-breadcrumb [year]="year" [clientName]="isClientList ? invoices[0]['client']['name'] : null"></app-invoices-breadcrumb>
+  
+  <app-invoices-table [data]="invoices" class="block mb-50"></app-invoices-table>
+  
+</div>
+  

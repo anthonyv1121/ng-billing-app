@@ -1,0 +1,16 @@
+@import '../../scss/variables';
+
+header{
+    -webkit-box-shadow: 0 2px 1px -1px rgba(0,0,0,.2);
+        box-shadow: 0 2px 1px -1px rgba(0,0,0,.2);
+}
+.appName{
+    border-right: 1px solid rgba(0,0,0,.2);
+    padding-right: 20px;
+    margin-right: 20px;
+    line-height: $menuHeight;
+    color: inherit;
+}
+.mat-raised-button {
+    margin-top: $menuHeight/4;
+}

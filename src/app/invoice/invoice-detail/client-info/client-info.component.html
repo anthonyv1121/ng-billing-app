@@ -1,0 +1,9 @@
+<div class="client-info" fxLayoutAlign="start start">
+    <div>Client</div>
+    <div class="client-contact-info">
+      <div class="bold"><a [routerLink]="setClientUrl()">{{client.name}}</a></div>
+      <div>Attn: {{client.contact}}</div>
+      <div>{{client.address['street']}}</div>
+      <div>{{client.address['city']}}</div>
+    </div>
+  </div>

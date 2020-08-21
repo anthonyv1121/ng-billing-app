@@ -1,0 +1,112 @@
+<form [formGroup]="invoiceForm">
+    <mat-card>
+      <h3>Client Information</h3>
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+          <mat-form-field fxFlex="32">
+              <input matInput [matDatepicker]="picker" placeholder="Date" formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="32" fxFlexOffset="2" formGroupName="client">
+            <input matInput placeholder="Client Name" formControlName="name">
+         </mat-form-field>
+
+         <mat-form-field fxFlex="32" fxFlexOffset="2">
+            <input matInput placeholder="Client ID" formControlName="clientId">
+          </mat-form-field>
+
+      </div>
+       
+      <div fxLayout="row" fxLayoutAlign="space-between start" formGroupName="client">
+          <mat-form-field fxFlex="32">
+              <input matInput placeholder="Contact Name" formControlName="contact">
+          </mat-form-field>
+
+          <mat-form-field fxFlex="32" fxFlexOffset="2" formGroupName="address">
+              <input matInput placeholder="Street Address" formControlName="street">
+          </mat-form-field>
+          
+            <mat-form-field fxFlex="32" fxFlexOffset="2" formGroupName="address">
+              <input matInput placeholder="City and State" formControlName="city">
+            </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="start start">
+          <mat-form-field fxFlex="32">
+              <mat-select placeholder="Status" formControlName="status">
+                <mat-option *ngFor="let status of statuses" [value]="status">
+                  {{ status }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          <mat-form-field fxFlex="32" fxFlexOffset="2">
+              <input matInput placeholder="Linked Invoice" formControlName="linkedInvoice">
+          </mat-form-field>
+
+          <mat-form-field fxFlex="32" fxFlexOffset="2">
+                <input matInput placeholder="Notes" formControlName="notes">
+            </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card *ngIf="services.length">
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <h3>Services</h3> <a mat-raised-button color="accent" (click)="addService()"><mat-icon>add_circle_outline</mat-icon> Add</a>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between start" formArrayName="services" class="service-row"
+            *ngFor="let item of invoiceForm.get('services')['controls']; let i = index;">
+          <ng-container [formGroupName]="i">
+            <mat-form-field fxFlex="52">
+                <input matInput placeholder="Item / Item Description" formControlName="item">
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="start" fxFlexOffset="2">
+                <span fxFlex="3" class="symbol">$</span>
+                <mat-form-field fxFlex="92" fxFlexOffset="3">
+                    <input matInput placeholder="Unit Cost" formControlName="unitCost" (keyup)="calculateItem(i)">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field fxFlex="14" fxFlexOffset="2">
+                <input matInput placeholder="Qty/Hr" formControlName="quantity" (keyup)="calculateItem(i)">
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="start" fxFlexOffset="2">
+                    <span fxFlex="3" class="symbol">$</span>
+                    <mat-form-field fxFlex="92" fxFlexOffset="3">
+                            <input matInput placeholder="Total" formControlName="total" [(ngModel)]="servicesTotals[i]">
+                    </mat-form-field>
+            </div>
+            <a mat-icon-button *ngIf="services.length > 1" (click)="removeService(i)">
+                <mat-icon color="accent">remove_circle_outline</mat-icon>
+            </a><br>
+          </ng-container>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end end" class="subTotal">
+          Total Cost: <span>{{subTotal | currency}}</span>
+      </div>
+    </mat-card>
+
+    <mat-card fxLayoutAlign="space-between center" class="total-section">
+        <div>
+            <h4 class="light-heading">Total Due Now:</h4>
+            <mat-checkbox formControlName="depositCheckbox">Add Deposit</mat-checkbox>
+            <span fxFlex="3" class="symbol">%</span>
+            <mat-form-field><input matInput formControlName="depositAmt"  [(ngModel)]="deposit" (keyup)="onDepositKeyUp()" placeholder="Deposit Amount"></mat-form-field>
+            
+        </div>
+        <div fxLayout="column">
+            <div class="total-due" [class.error]="total < 0 || deposit > 100">{{total | currency}}</div>
+            <div class="error" *ngIf="total < 0 || deposit > 100">Invalid deposit amount.</div>
+        </div>
+        
+    </mat-card>
+    <div fxLayout="row" fxLayoutAlign="end">
+        <button mat-raised-button color="primary" class="big-btn" [disabled]="invoiceForm.invalid || total === 0 || invoiceForm.untouched" (click)="saveInvoice()">
+            {{!editing ? 'Save' : 'Update'}}
+        </button>
+    </div>
+    
+ </form>
+
+    

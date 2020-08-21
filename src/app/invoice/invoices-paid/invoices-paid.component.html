@@ -1,0 +1,5 @@
+<div *ngIf="paid | async as p">
+    <h1>Recently Paid Invoices</h1>
+    <app-invoices-table [data]="p"></app-invoices-table>     
+</div>
+    

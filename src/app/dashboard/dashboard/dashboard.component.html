@@ -1,0 +1,9 @@
+<div *ngIf="(dashboardData$ | async) as invoices" fxLayout="row" fxLayoutAlign="space-between start">
+    <app-due-widget [dueInvoices]="invoices.due" fxFlex="48"></app-due-widget>
+    <app-paid-widget [paidInvoices]="invoices.paid" fxFlex="48" fxFlexOffset="4"></app-paid-widget>
+</div>
+
+<!--<div *ngIf="dashboardData$ | async as invoices"> 
+   {{invoices.due | json}} <br><br>
+   {{invoices.paid | json}}
+</div> -->

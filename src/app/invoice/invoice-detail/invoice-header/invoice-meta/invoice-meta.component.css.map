@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "invoice-meta.component.scss"
+    ],
+    "names": [],
+    "file": "invoice-meta.component.css"
+}

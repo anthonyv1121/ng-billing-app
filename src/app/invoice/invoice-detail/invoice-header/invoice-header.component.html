@@ -1,0 +1,11 @@
+<header>
+   <div fxLayoutAlign="space-between start">
+      <app-invoice-masthead></app-invoice-masthead>
+      <app-invoice-meta [date]="invoiceInfo['date']" 
+                        [balance]="invoiceInfo['balance']" 
+                        [status]="invoiceInfo['status'] === 'due' ? 'Due On Receipt' : 'Invoice ' + invoiceInfo['status']"
+                        [linkedInvoice]="invoiceInfo['linkedInvoice']">
+      </app-invoice-meta>
+   </div>
+
+</header>

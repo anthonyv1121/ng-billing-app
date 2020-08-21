@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "linked-invoice.component.scss"
+    ],
+    "names": [],
+    "file": "linked-invoice.component.css"
+}

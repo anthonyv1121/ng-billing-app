@@ -1,0 +1,22 @@
+<div *ngIf="(invoice$ | async) as invoice">
+
+    <app-error *ngIf="invoice.error else invoiceDetail" 
+               [error]="invoice.error">
+    </app-error>
+
+    <ng-template #invoiceDetail>
+      
+      <section class="section">
+        <app-invoice-header [invoiceInfo]="{date:invoice.date, balance:invoice.balance, status: invoice.status,linkedInvoice:invoice.linkedInvoice}"></app-invoice-header>
+        <app-client-info [client]="invoice.client"></app-client-info>
+        <app-invoice-status *ngIf="invoice.status !== 'due'" [status]="invoice.status" ></app-invoice-status>
+        <app-invoice-actions [id]="invoice.id"></app-invoice-actions>
+        <app-services-table [services]="invoice.services"></app-services-table> 
+        <app-single-row-table [rows]="[{label: 'Total Cost:', value:invoice.totalCost}]" id="total-cost-table"></app-single-row-table>
+        <app-single-row-table [rows]="[{label: 'Balance Due Now:', value:invoice.balance}]" id="balance-table" [offsetW]=3></app-single-row-table>
+        <app-invoice-notes [desposit]="invoice.depositCheckbox" [notes]="invoice.notes"></app-invoice-notes>
+      </section>
+    
+    </ng-template>
+
+</div>

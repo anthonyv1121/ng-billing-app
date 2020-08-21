@@ -1,0 +1,100 @@
+@import "material";
+
+// Colors
+$primaryColor: #007bb6; //#435e76;
+$primaryLightColor: #56aae9;
+$primaryDarkColor: #004f86;
+$primaryTextColor: #333;
+$secondaryTextColor: #999999;
+$secondaryColor: #ddd;
+$tintColor: rgba($secondaryTextColor, 0.1);
+$borderColor: rgba($secondaryTextColor, 0.4);
+
+
+$goColor:#6aa84f;
+$alpha50:rgba(0,0,0,.50);
+$defaultOpacity:rgba(0,0,0,.42);
+
+$colorSuccess: #4cae4c;
+$colorInfo: #46b8da;
+$colorWarn: #eea236;
+$colorError: #d43f3a;
+
+// Element colors
+$windowBackgroundColor: #eee;
+$appBackgroundColor: #fff;
+$hoverColor: #4b95db;
+$linkColor: #007bb6;
+
+
+$selectInverseBorderColor:rgba(255,255,255,.42);
+$dropDownArrowColor: rgba(255,255,225,.54);
+$formInputColor: rgba(0, 0, 0, 0.87); 
+
+$isResponsive: false;
+
+// dimensions
+$invoiceHeader: (
+    sizing:180px,
+    padding:20px
+);
+
+$menuHeight: 64px;
+$pageMaxWidth: 1280px;
+
+
+// spacing
+$defaultSectionPadding:30px;
+$sectionSidePadding:25px;
+$sectionPadding:(
+    top:$defaultSectionPadding,
+    right:$sectionSidePadding,
+    bottom:40px,
+    left:$sectionSidePadding
+);
+
+// tables
+$tableHeight: 300px;
+$tableBorderColor: rgba(0,0,0,.2);
+$tableHeaderSize: 15px;
+$tableHeaderColor: rgba(0,0,0,.60);
+
+// fonts
+$fontFamily: Roboto,"Helvetica Neue",Arial,sans-serif, Nucleo;
+$fontFamilyCond: 'Roboto Condensed', sans-serif;
+
+// font sizes:
+$largest:72px;
+$h1:28px;
+$h2:22px;
+$h3:18px;
+$h4:15px;
+
+$lightHeading: (
+    font-size:40px,
+    font-weight: 200
+);
+%light-heading{
+    @each $prop, $value in $lightHeading {
+        #{$prop}: $value;
+      }
+}
+
+// font weights
+$bold: 900;
+$medium:700;
+$semi:500;
+$light:300;
+
+%error {
+    color: $colorError;
+}
+
+@function calc-percent($val, $num) {
+   @return $val * ($num/100);
+}
+
+// CSS Vars - just a test, not the best way to do this
+:root{
+    --service-table-first-col-width: 50;
+}

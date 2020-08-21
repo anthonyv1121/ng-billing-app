@@ -1,0 +1,93 @@
+a {
+    color:$linkColor;
+    text-decoration: none;
+    &:hover {
+        color: $hoverColor;
+    }
+    &:visited {
+        color: $linkColor;
+    }
+    & > mat-icon {
+        position: relative;
+        top: 7px;
+    }
+}
+ul > li{
+    display: inline;
+}
+h1, .h1{
+    font-size: $h1;
+    font-weight: $bold;
+    margin-bottom: 20px;
+}
+h3, .h3{
+    font-size: $h3;
+}
+h4, .h4{
+    font-size: $h4;
+    font-weight: $bold;
+}
+.largest{
+    font-size: $largest;
+    text-transform: uppercase;
+    font-weight: $bold;
+}
+.section{
+    border: 1px solid $secondaryColor;
+    padding: 30px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.shaded{
+    background-color: #f7f7f7;
+}
+.inline-flex{
+    display: inline-flex;
+}
+.light-heading{
+   @extend %light-heading;
+}
+.border-box{
+    box-sizing: border-box;
+}
+.bold{
+    font-weight: $bold;
+}
+.block{
+    display: block;
+}
+.mb-50{
+    margin-bottom: 50px;
+}
+button.big-btn{
+    width: 120px;
+    font-size: 16px;
+    padding: 4px;
+}
+.error{
+    @extend %error;
+}
+.tint-box{
+	padding: map-get($invoiceHeader, padding);
+    background-color: $tintColor;
+}
+.mat-flat-button{
+    padding: 0 12px;
+    min-width: 75px;
+
+    .mat-icon {
+        position: relative;
+        top: 6px;
+        left: -3px;
+        height: 19px;
+        width: 19px;
+        font-size: 19px;
+    }
+}
+.table--scroll{
+    max-height: 400px;
+    overflow-y: scroll;
+}
+a > .mat-icon {
+    color: $primaryDarkColor;
+}

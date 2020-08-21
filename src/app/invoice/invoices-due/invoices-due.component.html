@@ -1,0 +1,4 @@
+<div *ngIf="dueInvoices | async as invoices">
+    <h1>Unpaid Invoices</h1>
+    <app-invoices-table [data]="invoices"></app-invoices-table>    
+</div>

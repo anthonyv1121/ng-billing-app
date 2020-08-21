@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAA;EACJ,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "due-widget.component.scss"
+    ],
+    "names": [],
+    "file": "due-widget.component.css"
+}

@@ -1,0 +1,28 @@
+body{
+    min-height: 100vh;
+    position: relative;
+    font-family: $fontFamily;
+    font-size: 14px;
+    background-color: $appBackgroundColor;
+    color: $primaryTextColor;
+    overflow-x: hidden;
+}
+.wrapper{
+    max-width: $pageMaxWidth;
+    margin: 0 auto;
+}
+#m-view{
+    padding: 40px;
+
+    .mat-card:not([class*=mat-elevation-z]){
+            box-shadow: 0 1px 1px -3px rgba(0,0,0,.2),
+                        0 1px 1px 0 rgba(0,0,0,.14), 
+                        0 0px 1px 0 rgba(0,0,0,.12)
+    }
+    mat-card{
+        border-top: 3px solid $primaryColor;
+    }
+    h3{
+        margin-bottom: 10px;
+    }
+}

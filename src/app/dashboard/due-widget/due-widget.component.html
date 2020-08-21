@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayoutAlign="space-between start" >
+        <h3>Outstanding Invoices</h3>
+        <a routerLink="/invoices/due" *ngIf="dueInvoices.length > 1">
+                View more <mat-icon>keyboard_arrow_right</mat-icon></a>
+    </div>
+<mat-card class="widget">
+    <div fxLayout="column" fxLayoutAlign="space-between start" style="height:200px;">
+            <div>
+                    <span>Date: {{ latestDue.date | date:'longDate' }}</span>
+                    <div class="largest">{{ latestDue.balance | currency}}</div>
+            </div>
+
+            <div>Client: {{ latestDue.client.name }}</div>
+    </div>
+      
+        <div fxLayout="row" fxLayoutAlign="end center">
+                <a [routerLink]="latestDue | invoiceUrl" color="primary">View invoice <mat-icon>keyboard_arrow_right</mat-icon></a>   
+       </div>
+        
+</mat-card>

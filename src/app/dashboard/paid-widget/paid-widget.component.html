@@ -1,0 +1,40 @@
+<div fxLayout="row" fxLayoutAlign="space-between start" >
+    <h3>Recently Paid Invoices</h3>
+    <a routerLink="/invoices">View all <mat-icon>keyboard_arrow_right</mat-icon></a>
+</div>
+
+<mat-card class="widget">
+  <mat-table #table [dataSource]="paidInvoices">
+    <!-- <app-invoice-item *ngFor="let data of dataSource; index as i"
+                      key="date" 
+                      header="Date" 
+                      [data]='data.date'>
+    </app-invoice-item> -->
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let invoice"> {{invoice.date | date:'longDate'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="client">
+      <mat-header-cell *matHeaderCellDef> Client </mat-header-cell>
+      <mat-cell *matCellDef="let invoice"> {{invoice.client.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="balance">
+      <mat-header-cell *matHeaderCellDef> Balance $ </mat-header-cell>
+      <mat-cell *matCellDef="let invoice"> {{invoice.balance | currency}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="view">
+        <mat-header-cell *matHeaderCellDef> View/Edit </mat-header-cell>
+        <mat-cell *matCellDef="let invoice"> <button mat-icon-button>
+          <a [routerLink]="invoice | invoiceUrl"><mat-icon>open_in_browser</mat-icon></a>
+          </button> </mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns; even as shadedRow" [class.shaded]="shadedRow"></mat-row>
+  </mat-table>
+</mat-card>
+
+      

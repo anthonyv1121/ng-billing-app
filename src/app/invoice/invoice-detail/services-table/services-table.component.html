@@ -1,0 +1,15 @@
+<mat-table [dataSource]="services" class="servicesTable">
+  <ng-container *ngFor="let col of columnKeys; index as i" [matColumnDef]="col">
+    <mat-header-cell
+      *matHeaderCellDef
+      [fxFlex]="i === 0 ? serviceColW : null"
+      >{{ columnHeaders[i] }}</mat-header-cell
+    >
+    <mat-cell *matCellDef="let data" [fxFlex]="i === 0 ? serviceColW : null">{{
+      col === "total" ? (data[col] | currency) : data[col]
+    }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnKeys"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnKeys"></mat-row>
+</mat-table>

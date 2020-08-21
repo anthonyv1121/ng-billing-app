@@ -1,0 +1,60 @@
+@import '../../scss/variables';
+
+mat-card{
+    margin-bottom: 30px;
+
+    &:last-child{
+        margin-bottom: 100px;
+    }
+}
+form{
+    margin-bottom: 50px;
+}
+.service-row{
+    position: relative;
+}
+.total-due{
+    font-weight: $semi;
+    color: $primaryDarkColor;
+    font-size:$largest;
+
+    &.error{
+        opacity: 0.75;
+        @extend %error;
+    }
+}
+.mat-icon-button {
+    position: absolute;
+    right: -26px;
+    bottom: 15px;
+
+    .mat-icon {
+        font-size: 18px;
+    }
+}
+.symbol{
+    align-self: center;
+    padding-bottom: 6px;
+    color: $defaultOpacity;
+}
+.light-heading{
+    margin: 10px 0 0;
+}
+.total-section {
+    .mat-checkbox {
+        margin: 0 7px;
+    }
+    .error {
+        align-self: flex-end;
+    }
+}
+.subTotal{
+    margin-top: 30px;
+    font-size: 16px;
+
+    & > span {
+        font-weight: $bold;
+        color: mat-color($accentPalette);
+        margin-left: 7px;
+    }
+}

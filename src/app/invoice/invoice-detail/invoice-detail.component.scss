@@ -1,0 +1,165 @@
+@import '../../scss/variables';
+@import '../../scss/utilities';
+
+$size: map-get($invoiceHeader, sizing);
+$padding: map-get($invoiceHeader, padding);
+
+::ng-deep{
+
+    .bold {
+        @extend .bold;
+    }
+
+    .masthead > *, 
+    .client-info > * {
+        @extend .border-box;
+    }
+
+    .client-info{
+        margin-top: 50px;
+
+        & > div:first-child {
+            width: $size;
+            text-align: center;
+            line-height: calc-percent($size, 70);
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+    }
+
+    .my-logo {
+        width: $size;
+        line-height: calc-percent($size, 95);
+        background-color: $primaryDarkColor;
+        text-align: center; 
+        color: #fff;
+        font-size: 90px;
+        font-weight: $bold;
+        height: $size;
+    }
+    .contact-info{
+        height: $size;
+    }
+    .contact-info,
+    .client-contact-info {
+        $padding: $padding;
+        border-left: 1px solid $borderColor;
+        padding: 30px 0 $padding $padding;
+        margin-left: $padding; 
+        color:rgba($primaryTextColor, .8);
+    }
+    .name{
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: $semi;
+    }
+    .invoice-meta{
+        & > div.tint-box {
+            text-transform: uppercase;
+        }
+        .linked-invoice {
+            position: relative;
+            top: 20px;
+            font-weight: $light;
+        }
+    }
+    .date{
+        border-bottom: 1px solid rgba(0,0,0,0.5);
+    }
+    .total{    
+        & > span {
+            font-weight: $semi;
+            color: $primaryDarkColor;
+        }
+    }
+    .due{
+        padding-left: 6px;
+        font-weight: $bold;
+    }
+    app-invoice-actions,
+    app-client-info {
+        display: inline-block;
+    }
+    app-invoice-actions {
+        position: absolute;
+        right: 33px;
+        top: 300px;
+
+        button:first-of-type{
+            margin-right: 5px;
+        }
+    }
+    app-invoice-status {
+        position: absolute;
+        top: 27%;
+        left: 55%;
+    }
+    .mat-table{
+        
+        &.servicesTable {
+            margin-top: 30px;
+
+            .mat-cell {
+                font-weight: $semi;
+            }
+        }
+        &.servicesTable,  &.horizontal-table {
+
+            & > .mat-row{
+                min-height: 70px; 
+            }
+        }
+    
+        &#total-cost-table{
+            background-color: lighten($color: $tintColor, $amount: 20);
+
+            & > .mat-row {
+
+                & > .mat-cell {
+                     &:first-of-type {
+                        text-align: right;
+                        padding-right: 107px;
+                        font-weight:inherit;
+                    }
+                    &:last-of-type {
+                        font-weight:$bold;
+                        color: mat-color($accentPalette);
+                    }
+
+                }
+            }
+                
+        }
+        &#balance-table{
+            margin-bottom: 20px;
+
+            & > .mat-row{
+                padding-top: 30px;
+                padding-bottom: 30px;
+                border-bottom: none;
+
+                & > .mat-cell {
+                    font-size: map-get($lightHeading, font-size);
+                }
+                & > .mat-cell:first-of-type {
+                    font-weight: map-get($lightHeading, font-weight);
+                }
+                & > .mat-cell:last-of-type {
+                    font-weight:$bold;
+                    color: $primaryDarkColor;
+                }
+            }
+        }
+
+    }
+}
+
+.totalCost{
+    padding:20px 80px 0 0;
+    
+        & > span {
+            padding-left: 7px;
+            color: mat-color($accentPalette);
+            font-weight: $semi;
+        }
+}

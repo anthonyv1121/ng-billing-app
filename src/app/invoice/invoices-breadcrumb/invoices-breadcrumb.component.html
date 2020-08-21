@@ -1,0 +1,7 @@
+
+    <ul>
+        <li class="h1"><a [routerLink]="['/invoices/', year.toString() ]" 
+               routerLinkActive='active' 
+               [routerLinkActiveOptions]="{exact: true}">{{year}} Invoices{{ clientName ? ':' : null }}</a></li>
+        <li class="h1" *ngIf="clientName">{{clientName}}</li> 
+    </ul>

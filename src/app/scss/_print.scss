@@ -1,0 +1,49 @@
+@media print {
+    app-header,
+    app-footer,
+    app-invoice-actions,
+    .linked-invoice{
+        display: none !important;
+    }
+    #m-view{
+        padding: 0;
+    }
+    .section {
+        border:none;
+    }
+    .my-logo {
+        width: 120px !important;
+        line-height: 117px !important;
+        font-size: 50px !important;
+        height: 120px !important;
+    }
+    .light-heading {
+        font-size: 22px;
+    }
+    .contact-info{
+        height: 120px !important;
+        padding-top: 0 !important;
+    }
+    .client-info {
+        margin-top: 20px;
+        & > div:first-child{
+            width: 120px !important;
+            line-height: 105px !important;
+            background-color: rgba(0,0,0,0.007);
+        }
+    }
+    .client-contact-info{
+        padding-top:10px !important; 
+
+        a {
+            color:inherit;
+        }
+    }   
+    .mat-table#balance-table > .mat-row > .mat-cell {
+        font-size:20px;
+        max-width: 57% !important;
+    }
+    .due {
+        padding-left: 2px !important;
+    }
+}
